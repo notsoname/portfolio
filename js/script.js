@@ -1,8 +1,7 @@
 const hamburger = document.querySelector('.hamburger'),
     menu = document.querySelector('.menu'),
     closeElem = document.querySelector('.menu__close'),
-    noarea = document.querySelector('.menu__overlay'),
-    link = document.querySelector('.menu__link');
+    overlay = document.querySelector('.menu__overlay');
 
 hamburger.addEventListener('click', () => {
     menu.classList.add('active');
@@ -12,13 +11,12 @@ closeElem.addEventListener('click', () => {
     menu.classList.remove('active');
 });
 
-noarea.addEventListener('click', () => {
-    menu.classList.remove('active');
+overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+        menu.classList.remove('active');
+    }
 });
 
-/* link.addEventListener('click', () => {
-    menu.classList.remove('active');
-}); */
 
 
 $("a[href^='#']").click(function(){
@@ -35,7 +33,7 @@ const numbers = document.querySelectorAll('.skills__ratings-number'),
 
 numbers.forEach( (item, i) => {
     lines[i].style.width = item.innerHTML;
-})
+});
 
 $(window).scroll(function() {
     if ($(this).scrollTop() > 800) {
